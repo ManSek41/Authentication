@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+    <title>Login</title>
+    <style>
+       
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .login-container {
+            background: #ffffff;
+            width: 380px;
+            padding: 40px 35px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 26px;
+        }
+
+        .input-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: #667eea;
+            outline: none;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.4);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #667eea;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #5a67d8;
+        }
+
+        .signup-link {
+            margin-top: 15px;
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .signup-link:hover {
+            text-decoration: underline;
+        }
+
+        .messages {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .messages ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .messages li {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .messages li.info {
+            background: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+        }
+
+        .messages li.warn {
+            background: #fff3cd;
+            color: #856404;
+            border-color: #ffeeba;
+        }
+
+        .messages li.error {
+            background: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+    </style>
+    
+    <script href="main.js"></script>
+</h:head>
+
+<h:body>
+    <div class="login-container">
+        <h2>Login</h2>
+
+        <!-- JSF Form -->
+        <h:form>
+            <!-- Message box -->
+            <div class="messages">
+                <h:messages globalOnly="true" layout="list"
+                            infoClass="info" warnClass="warn" errorClass="error"/>
+            </div>
+
+            <!-- Email -->
+            <div class="input-group">
+                <h:outputLabel for="email" value="Email:" />
+                <h:inputText id="email" value="#{userBean.user.email}" required="true" 
+                             requiredMessage="Email is required" />
+            </div>
+
+            <!-- Password -->
+            <div class="input-group">
+                <h:outputLabel for="password" value="Password:" />
+                <h:inputSecret id="password" value="#{userBean.user.password}" required="true" 
+                               requiredMessage="Password is required" />
+            </div>
+
+            <!-- Submit -->
+            <h:commandButton value="Login" action="#{userBean.loginUser}" styleClass="login-btn" />
+
+            <!-- Link -->
+            <h:link outcome="index.xhtml" value="Don't have an account? Sign up here." styleClass="signup-link" />
+        </h:form>
+            
+  
+
+    </div>
+    
+    
+ 
+</h:body>
+
+
+</html>

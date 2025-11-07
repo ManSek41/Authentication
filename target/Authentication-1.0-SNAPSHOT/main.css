@@ -1,0 +1,136 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Nov 4, 2025, 9:30:32 AM
+    Author     : HerbertSekpey
+*/
+
+        /* --- Base Page Layout --- */
+        body {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #007bff, #00bcd4);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        /* --- Form Card --- */
+        .signup-card {
+            background-color: #ffffff;
+            padding: 40px 50px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+            width: 400px;
+            animation: fadeIn 0.6s ease;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        /* --- Form Inputs --- */
+        h:panelGrid {
+            width: 100%;
+        }
+
+        h:outputLabel {
+            font-weight: 600;
+            color: #555;
+        }
+
+        h:inputText, h:inputSecret {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+
+        h:inputText:focus, h:inputSecret:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0,123,255,0.3);
+        }
+
+        /* --- Buttons --- */
+        h:commandButton {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 15px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        h:commandButton:hover {
+            background-color: #0056b3;
+            transform: translateY(-1px);
+        }
+
+       
+        h:message, h:messages {
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        h:messages {
+            display: block;
+            margin-top: 15px;
+        }
+
+        /* --- Link to login --- */
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        h:link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        h:link:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Toast Notifications --- */
+        .toast {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            min-width: 260px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 9999;
+            opacity: 0.95;
+            animation: fadeIn 0.5s, fadeOut 0.5s 4s forwards;
+        }
+
+        .toast-info { background-color: #28a745; }
+        .toast-error { background-color: #dc3545; }
+        .toast-warning { background-color: #ffc107; color: #000; }
+
+        /* --- Animations --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; transform: translateY(-10px); }
+        }
