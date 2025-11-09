@@ -15,7 +15,7 @@ import java.io.IOException;
  *
  * @author HerbertSekpey
  */
-@WebFilter({"/dashboard.xhtml", "/profile.xhtml","/settings.xhtml","/editData.xhtml"}) // Apply to all URLs
+@WebFilter("/app/*") // Apply to all URLs
 public class AuthFilter extends HttpFilter{
     
     @Override

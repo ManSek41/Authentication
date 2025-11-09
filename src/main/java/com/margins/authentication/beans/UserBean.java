@@ -138,12 +138,10 @@ public String loginUser() {
                                                     .getExternalContext()
                                                     .getSession(true);
     session.setAttribute("user", loggedInUser);
-
-    
         // Working on sessions 
         sessionUser.setUser(loggedInUser); // first session used here. would implement HttpServletRequest
         context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "User successfully logged in", null));
-        return "dashboard.xhtml?faces-redirect=true";
+        return "app/dashboard.xhtml?faces-redirect=true";
 //          return null;   // for now
     } else {
         context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid email or password", null));

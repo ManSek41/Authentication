@@ -10,6 +10,7 @@ import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
 import jakarta.servlet.http.HttpSession;
+import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -31,22 +32,25 @@ public class SessionBean implements Serializable{
     public void setUser(UserEntity user) { this.user = user; }
 
     
-    public String logout() {
+    public String logout() throws IOException {
     
     FacesContext facesContext = FacesContext.getCurrentInstance();
     HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);
+    
     if (session != null) {
         user = null;
         session.invalidate(); // removes all session attributes, including "user"
-    }
-    // Optional feedback message (appears on the login page)
-    facesContext.addMessage(null, new FacesMessage(
+        facesContext.getExternalContext().redirect("../login.xhtml");
+         // Optional feedback message (appears on the login page)
+        facesContext.addMessage(null, new FacesMessage(
             FacesMessage.SEVERITY_INFO,
             "You have been logged out successfully",
             null));
-
-    // Redirect to login page
-    return "login.xhtml?faces-redirect=true";
+        // Redirect to login page
+    return "../login.xhtml?faces-redirect=true";
+    }
+   
+    return null;
 }
 
     
