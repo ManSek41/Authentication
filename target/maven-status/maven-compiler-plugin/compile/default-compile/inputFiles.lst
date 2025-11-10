@@ -1,8 +1,10 @@
 C:\Users\HerbertSekpey\Playground\Authentication\src\main\java\com\margins\authentication\beans\SessionBean.java
 C:\Users\HerbertSekpey\Playground\Authentication\src\main\java\com\margins\authentication\entity\ProjectEntity.java
+C:\Users\HerbertSekpey\Playground\Authentication\src\main\java\com\margins\authentication\services\ProjectService.java
 C:\Users\HerbertSekpey\Playground\Authentication\src\main\java\com\margins\authentication\beans\UserBean.java
 C:\Users\HerbertSekpey\Playground\Authentication\src\main\java\com\margins\authentication\JakartaRestConfiguration.java
 C:\Users\HerbertSekpey\Playground\Authentication\src\main\java\com\margins\authentication\entity\Comment.java
+C:\Users\HerbertSekpey\Playground\Authentication\src\main\java\com\margins\authentication\beans\projectBean.java
 C:\Users\HerbertSekpey\Playground\Authentication\src\main\java\com\margins\authentication\AuthFilter.java
 C:\Users\HerbertSekpey\Playground\Authentication\src\main\java\com\margins\authentication\services\UserService.java
 C:\Users\HerbertSekpey\Playground\Authentication\src\main\java\com\margins\authentication\resources\JakartaEE10Resource.java

@@ -34,6 +34,8 @@ public class UserBean implements Serializable{
     
     @Inject
     private SessionBean sessionUser;
+    @Inject
+    private projectBean projectBean;
     
     private UserEntity user = new UserEntity();
     
@@ -132,7 +134,7 @@ public class UserBean implements Serializable{
 public String loginUser() {
 
     UserEntity loggedInUser = userService.findByEmailAndPassword(user.getEmail(), user.getPassword());
-
+    
     if (loggedInUser != null) {
     HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
                                                     .getExternalContext()
@@ -140,6 +142,7 @@ public String loginUser() {
     session.setAttribute("user", loggedInUser);
         // Working on sessions 
         sessionUser.setUser(loggedInUser); // first session used here. would implement HttpServletRequest
+        sessionUser.getUserProjects(session);
         context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "User successfully logged in", null));
         return "app/dashboard.xhtml?faces-redirect=true";
 //          return null;   // for now

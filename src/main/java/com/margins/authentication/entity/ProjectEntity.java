@@ -48,8 +48,12 @@ public class ProjectEntity implements Serializable{
        
  
        @ManyToOne
-       @JoinColumn(name="user_tb")
+       @JoinColumn(name="user_id")
        private UserEntity user;
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
 
        
     public UserEntity getUser() {

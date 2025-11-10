@@ -1,10 +1,12 @@
-com\margins\authentication\beans\SessionBean.class
 com\margins\authentication\entity\ProjectEntity.class
 com\margins\authentication\JakartaRestConfiguration.class
-com\margins\authentication\entity\Task.class
-com\margins\authentication\beans\UserBean.class
 com\margins\authentication\resources\JakartaEE10Resource.class
-com\margins\authentication\AuthFilter.class
+com\margins\authentication\beans\projectBean.class
 com\margins\authentication\entity\UserEntity.class
 com\margins\authentication\services\UserService.class
+com\margins\authentication\services\ProjectService.class
+com\margins\authentication\beans\SessionBean.class
+com\margins\authentication\entity\Task.class
+com\margins\authentication\beans\UserBean.class
+com\margins\authentication\AuthFilter.class
 com\margins\authentication\entity\Comment.class

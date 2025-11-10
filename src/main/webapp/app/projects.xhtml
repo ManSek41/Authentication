@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+
+<h:head>
+    <title>Create Project</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f4f6f8;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 140px);
+        }
+
+        .form-card {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+
+        .form-card h2 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            margin: 20px;
+            color: #777;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <header>
+        <h1>Create a New Project</h1>
+    </header>
+
+    <main>
+        <div class="form-card">
+            <h2>Project Details</h2>
+
+            <h:form>
+                <div class="message">
+                    <h:messages globalOnly="true" layout="table" />
+                </div>
+
+                <div class="form-group">
+                    <h:outputLabel for="name" value="Project Name:" />
+                    <h:inputText id="name"
+                                 value="#{projectBean.project.name}"
+                                 required="true"
+                                 requiredMessage="Project name is required." />
+                </div>
+
+                <div class="form-group">
+                    <h:outputLabel for="desc" value="Description:" />
+                    <h:inputTextarea id="desc"
+                                     value="#{projectBean.project.description}"
+                                     rows="4"
+                                     required="true"
+                                     requiredMessage="Description cannot be empty." />
+                </div>
+
+                <h:commandButton value="Create Project"
+                                 action="#{projectBean.createProject}"
+                                 styleClass="btn-primary" />
+            </h:form>
+        </div>
+    </main>
+
+    <footer>
+        <h:link value="← Back to Dashboard" outcome="dashboard.xhtml" />
+    </footer>
+</h:body>
+</html>

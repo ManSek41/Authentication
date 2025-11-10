@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="jakarta.faces.html">
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:ui="jakarta.faces.facelets">
 
 <h:head>
     <title>Dashboard</title>
@@ -104,19 +106,53 @@
     </header>
 
     <main>
-        <div class="card">
-            <h3>Profile</h3>
-            <p>View and edit your profile information.</p>
-            <h:link value="Go to Profile" outcome="profile.xhtml" />
-        </div>
+    <!-- Existing dashboard cards -->
+    <div class="card">
+        <h3>Profile</h3>
+        <p>View and edit your profile information.</p>
+        <h:link value="Go to Profile" outcome="profile.xhtml" />
+    </div>
+    
+    <div class="card">
+        <h3>Projects</h3>
+        <p>Click here to create a new project</p>
+        <h:link value="Create new project" outcome="projects.xhtml" />
+    </div>
 
-        <div class="card">
-            <h3>Settings</h3>
-            <p>Change application settings.</p>
-            <h:link value="Go to Settings" outcome="settings.xhtml" />
-        </div>
-    </main>
+    <div class="card">
+        <h3>Settings</h3>
+        <p>Change application settings.</p>
+        <h:link value="Go to Settings" outcome="settings.xhtml" />
+    </div>
 
+    <!-- Projects list section -->
+    <h:panelGroup layout="block" style="width:100%; margin-top:40px;">
+        <h2 style="text-align:center; margin-bottom:20px;">My Projects</h2>
+        
+        <h:panelGrid id="grp" columns="3" columnClasses="card,card,card" style="display:flex; justify-content:center; flex-wrap:wrap; gap:20px; ">
+            <ui:repeat value="#{sessionUser.projects}" var="project">
+                <div class="card">
+                    <h3>#{project.name}</h3>
+                    <p>#{project.description}</p>
+                    <p><strong>Date Created:</strong> #{project.dateCreated}</p>
+                    <p><strong>Tasks:</strong> #{not empty project.tasks ? project.tasks.size() : 0}</p>
+                    <!-- Optional view button -->
+<!--                    <h:link value="View Project" outcome="projectDetails.xhtml">
+                        <f:param name="projectId" value="#{project.id}" />
+                    </h:link>-->
+<h:form>
+    <h:commandButton value="Delete" action="#{projectBean.deleteProject(project.id)}">
+        <f:ajax execute="@form" render="grp" />
+    </h:commandButton>
+</h:form>
+
+                </div>
+            </ui:repeat>
+        </h:panelGrid>
+    </h:panelGroup>
+</main>
+
+       
     <footer>
         <h:form>
             <h:commandButton value="Logout" action="#{sessionUser.logout}" />
